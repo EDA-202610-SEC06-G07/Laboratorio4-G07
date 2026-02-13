@@ -6,20 +6,20 @@ def new_queue():
         'size': 0
     }
     return nq
+
 def enqueue(my_queue, element):
     sll.add_last(my_queue['elements'], element)
     my_queue['size'] += 1
     return my_queue
 
 def dequeue(my_queue):
-    if my_queue['size'] > 0:
-        node = my_queue['elements']['first']
-        element = node["info"]
-        sll.remove_first(my_queue['elements'])
-        my_queue['size'] -= 1
-        return element
-    else:
-        raise Exception('EmptyStructureError: queue is empty')
+    if my_queue['size'] == 0:
+        raise Exception("EmptyStructureError: queue is empty")
+    node = my_queue['elements']['first']
+    element = node["info"]
+    sll.remove_first(my_queue['elements'])
+    my_queue['size'] -= 1
+    return element
    
 
 def peek(my_queue):
