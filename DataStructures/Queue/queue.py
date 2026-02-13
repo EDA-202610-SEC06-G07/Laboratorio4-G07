@@ -13,8 +13,9 @@ def enqueue(my_queue, element):
 
 def dequeue(my_queue):
     if my_queue['size'] > 0:
-        element = my_queue['elements']['first']
-        sll.remove_first(my_queue)
+        node = my_queue['elements']['first']
+        element = node["info"]
+        sll.remove_first(my_queue['elements'])
         my_queue['size'] -= 1
         return element
     else:
