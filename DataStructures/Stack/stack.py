@@ -9,17 +9,14 @@ def new_stack():
     return ns
 
 def push(my_stack, element):
-    nn = ls.new_single_node(element)
-    sll.add_first(my_stack, nn)
+    sll.add_first(my_stack, element)
     return my_stack
 
 def pop(my_stack):
     if my_stack['size'] == 0:
         raise Exception('EmptyStructureError: stack is empty')
-    else:
-        removed = my_stack['first']
-        sll.remove_first(my_stack)
-        return removed
+
+    return sll.remove_first(my_stack)
     
 def is_empty(my_stack):
     return my_stack['size'] == 0
@@ -28,7 +25,7 @@ def top(my_stack):
     if my_stack['size'] == 0:
         raise Exception('EmptyStructureError: stack is empty')
     else:
-        return my_stack['first']
+        return my_stack['first']['info']
 
 def size(my_stack):
     return my_stack['size']
