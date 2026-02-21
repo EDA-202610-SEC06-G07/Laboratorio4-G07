@@ -6,6 +6,8 @@ def new_queue():
         'size': 0
     }
     return nq
+def is_empty(my_queue):
+    return my_queue['size'] == 0
 
 def enqueue(my_queue, element):
     sll.add_last(my_queue['elements'], element)
