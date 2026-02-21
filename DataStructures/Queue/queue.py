@@ -6,6 +6,7 @@ def new_queue():
         'size': 0
     }
     return nq
+
 def is_empty(my_queue):
     return my_queue['size'] == 0
 
@@ -24,9 +25,8 @@ def dequeue(my_queue):
     return element
 
 def peek(my_queue):
-    if my_queue["size"]==0:
-        raise Exception('EmptyStructureError: queue is empty')
-    
+    if is_empty(my_queue):
+        return None
     return sll.first_element(my_queue['elements'])
 
 def size(my_queue):

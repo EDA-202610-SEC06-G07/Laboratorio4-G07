@@ -28,8 +28,8 @@ import csv
 import os
 import time
 from DataStructures.List import array_list as lt
-from DataStructures.List import queue as q
-from DataStructures.List import stack as st 
+from DataStructures.Queue import queue as q
+from DataStructures.Stack import stack as st 
 
 
 data_dir = os.path.dirname(os.path.realpath('__file__')) + '/Data/'
@@ -59,8 +59,6 @@ def new_logic():
     catalog['book_tags'] = lt.new_list()
     catalog['books_to_read'] = lt.new_list() 
     
-    catalog['books_to_read'] = None
-    catalog["book_sublist"] = None
     return catalog
 
 
@@ -73,10 +71,10 @@ def load_data(catalog):
     estructura de datos
     """
     books, authors = load_books(catalog)
-    tag_size = load_tags(catalog)
-    book_tag_size = load_books_tags(catalog)
-    books_to_read = load_books_to_read(catalog)
-    return books, authors, tag_size, book_tag_size, books_to_read
+    #tag_size = load_tags(catalog)
+    #book_tag_size = load_books_tags(catalog)
+    #books_to_read = load_books_to_read(catalog)
+    return books, authors, 0,0,0
 
 
 def load_books(catalog):
@@ -367,7 +365,7 @@ def measure_stack_performance(catalog):
 
     # Medir push
     start_time = get_time()
-    for pos in range(lt.size(catalog)):
+    for pos in range(lt.size(catalog["book_sublist"])):
         book = lt.get_element(catalog, pos)
         st.push(stack, book)
     end_time = get_time()

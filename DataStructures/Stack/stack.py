@@ -21,11 +21,10 @@ def pop(my_stack):
 def is_empty(my_stack):
     return my_stack['size'] == 0
 
-def top(my_stack):
-    if my_stack['size'] == 0:
-        raise Exception('EmptyStructureError: stack is empty')
-    else:
-        return my_stack['first']['info']
+def top(stack):
+    if stack["size"] == 0:
+        return None
+    return sll.first_element(stack["elements"])
 
 def size(my_stack):
     return my_stack['size']

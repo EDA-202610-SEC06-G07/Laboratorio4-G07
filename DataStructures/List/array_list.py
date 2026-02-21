@@ -52,3 +52,11 @@ def delete_element(my_list, pos):
     else:
         my_list["elements"].pop(pos)
         my_list["size"] -= 1
+def sub_list(my_list, pos, num_elements):
+    new = new_list()
+
+    end = pos + num_elements
+    for i in range(pos, min(end, my_list["size"])):
+        add_last(new, my_list["elements"][i])
+
+    return new
